@@ -204,12 +204,16 @@ function collarSizeToString(size) {
 }
 
 function populateTable(collarSize) {
+    console.log(`Trying to access data for collar size: ${size}`);
+
     const tableBody = document.querySelector(".measurement-table tbody");
     tableBody.innerHTML = ''; // clear the table
 
     const size = collarSize.toString();
 
     if (sizeData[size]) {
+        console.log(`Data found for collar size: ${size}`);
+
         for (let fit in sizeData[size]) {
             let row = `<tr>
                 <td>${fit}</td>
@@ -218,7 +222,8 @@ function populateTable(collarSize) {
                 <td>${sizeData[size][fit]["waist"]}</td>
             </tr>`;
             tableBody.innerHTML += row;
-        }
+   } else {
+        console.log(`No data found for collar size: ${size}`);
     }
 }
 
