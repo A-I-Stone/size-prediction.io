@@ -207,7 +207,7 @@ function populateTable(collarSize) {
     const tableBody = document.querySelector(".measurement-table tbody");
     tableBody.innerHTML = ''; // clear the table
 
-    const size = collarSizeToString(collarSize);
+    const size = collarSize.toString();
 
     if (sizeData[size]) {
         for (let fit in sizeData[size]) {
@@ -222,17 +222,27 @@ function populateTable(collarSize) {
     }
 }
 
+
 document.querySelector(".prev-size").addEventListener("click", function () {
-    if (roundedCollarSize - 0.5 in sizeData) {
-        roundedCollarSize -= 0.5;
+    let possibleSize = roundedCollarSize - 0.5;
+    while (!(possibleSize.toString() in sizeData) && possibleSize >= 4) {
+        possibleSize -= 0.5;
+    }
+    if (possibleSize.toString() in sizeData) {
+        roundedCollarSize = possibleSize;
         populateTable(roundedCollarSize);
     }
 });
 
 document.querySelector(".next-size").addEventListener("click", function () {
-    if (roundedCollarSize + 0.5 in sizeData) {
-        roundedCollarSize += 0.5;
+    let possibleSize = roundedCollarSize + 0.5;
+    while (!(possibleSize.toString() in sizeData) && possibleSize <= 22) {
+        possibleSize += 0.5;
+    }
+    if (possibleSize.toString() in sizeData) {
+        roundedCollarSize = possibleSize;
         populateTable(roundedCollarSize);
     }
 });
+
 
