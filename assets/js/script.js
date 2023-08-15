@@ -178,6 +178,19 @@ document
         resetSizeMeasurementModal();
     });
 
+let sizeData = {};
+
+// Fetch the JSON data
+fetch('./converted_data.json')
+    .then(response => response.json())
+    .then(data => {
+        sizeData = data;
+
+        // You can add any other logic that should run after loading the data here
+    })
+    .catch(error => {
+        console.error("There was an error fetching the JSON data:", error);
+    });
 
 function populateTable(collarSize) {
     const tableBody = document.querySelector(".measurement-table tbody");
