@@ -197,11 +197,12 @@ function collarSizeToString(size) {
     const fractionalPart = size - integerPart;
 
     if (fractionalPart === 0.5) {
-        return `${integerPart}1/2`;
+        return `${integerPart} 1/2`;  // Added space
     } else {
-        return `${integerPart}.0`;  // Notice the ".0" for whole numbers
+        return `${integerPart}.0`;
     }
 }
+
 
 
 const allFits = ["slim", "extra slim", "classic", "super slim"];
@@ -218,13 +219,16 @@ function populateTable(collarSize) {
     console.log(`Fetching data for size: ${size}`, sizeData[size]);
 
     for (let fit of allFits) {
-        let row = `<tr>
-            <td>${fit}</td>
-            <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["Collar Length (Btn-End BHole)"] : 'N/A'}</td>
-            <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["Chest - at armhole with Pleat open"] : 'N/A'}</td>
-            <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["waist"] : 'N/A'}</td>
-        </tr>`;
-        tableBody.innerHTML += row;
+        if (sizeData[size] && sizeData[size][fit]) {  // check if data exists for this fit
+    
+            let row = `<tr>
+                <td>${fit}</td>
+                <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["Collar Length (Btn-End BHole)"] : 'N/A'}</td>
+                <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["Chest - at armhole with Pleat open"] : 'N/A'}</td>
+                <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["waist"] : 'N/A'}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        }    
     }
 }
 
