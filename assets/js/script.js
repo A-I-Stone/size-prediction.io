@@ -155,6 +155,8 @@ sizeMeasurementForm.addEventListener("submit", function (event) {
     document.querySelector(".measurement-modal-submit").disabled = true;
 
     setTimeout(function () {
+        populateTable(roundedCollarSize);
+
         loadingContainer.classList.add("hidden");
         resultContainer.classList.remove("hidden");
         document.querySelector(".measurement-modal-result").textContent =
@@ -195,4 +197,17 @@ function populateTable(collarSize) {
         }
     }
 }
+document.querySelector(".prev-size").addEventListener("click", function () {
+    if (roundedCollarSize - 0.5 in sizeData) {
+        roundedCollarSize -= 0.5;
+        populateTable(roundedCollarSize);
+    }
+});
+
+document.querySelector(".next-size").addEventListener("click", function () {
+    if (roundedCollarSize + 0.5 in sizeData) {
+        roundedCollarSize += 0.5;
+        populateTable(roundedCollarSize);
+    }
+});
 
