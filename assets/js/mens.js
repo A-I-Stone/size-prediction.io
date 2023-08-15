@@ -199,9 +199,10 @@ function collarSizeToString(size) {
     if (fractionalPart === 0.5) {
         return `${integerPart}1/2`;
     } else {
-        return `${integerPart}`;
+        return `${integerPart}.0`;
     }
 }
+
 
 function populateTable(collarSize) {
 
