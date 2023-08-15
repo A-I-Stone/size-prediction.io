@@ -194,16 +194,23 @@
         <!-- Measurement Modal Section End -->
 
         <!-- Scripts -->
-        <script id="sizeScript"></script>
-
-        <button onclick="loadScript('./assets/js/mens.js')">Men's Sizes</button>
-        <button onclick="loadScript('./assets/js/boys.js')">Boys' Sizes</button>
+        <script src="./assets/js/mens.js"></script>
+        <script src="./assets/js/boys.js"></script>
         
         <script>
-        function loadScript(src) {
-            const script = document.getElementById('sizeScript');
-            script.src = src;
-        }
+            let currentMode = "mens"; // Default mode
+        
+            function selectOption(mode) {
+              currentMode = mode;
+              document.getElementById('mensOption').classList.remove('active');
+              document.getElementById('boysOption').classList.remove('active');
+        
+              if (mode === 'mens') {
+                document.getElementById('mensOption').classList.add('active');
+              } else {
+                document.getElementById('boysOption').classList.add('active');
+              }
+            }
         </script>
 
     </body>
