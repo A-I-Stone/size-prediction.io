@@ -215,6 +215,7 @@ function populateTable(collarSize) {
 
     // Update current collar size display
     document.querySelector(".current-collar-size").textContent = "Current Size: " + size;
+    console.log(`Fetching data for size: ${size}`, sizeData[size]);
 
     for (let fit of allFits) {
         let row = `<tr>
@@ -230,12 +231,37 @@ function populateTable(collarSize) {
 
 
 
+// document.querySelector(".prev-size").addEventListener("click", function () {
+//     let possibleSize = roundedCollarSize - 0.5;
+//     while (!(possibleSize.toString() in sizeData) && possibleSize >= 4) {
+//         possibleSize -= 0.5;
+//     }
+//     if (possibleSize.toString() in sizeData) {
+//         roundedCollarSize = possibleSize;
+//         populateTable(roundedCollarSize);
+//     }
+// });
+
+// document.querySelector(".next-size").addEventListener("click", function () {
+//     let possibleSize = roundedCollarSize + 0.5;
+//     while (!(possibleSize.toString() in sizeData) && possibleSize <= 22) {
+//         possibleSize += 0.5;
+//     }
+//     if (possibleSize.toString() in sizeData) {
+//         roundedCollarSize = possibleSize;
+//         populateTable(roundedCollarSize);
+//     }
+// });
+
+
 document.querySelector(".prev-size").addEventListener("click", function () {
     let possibleSize = roundedCollarSize - 0.5;
-    while (!(possibleSize.toString() in sizeData) && possibleSize >= 4) {
+
+    while (!(collarSizeToString(possibleSize) in sizeData) && possibleSize >= 4) {
         possibleSize -= 0.5;
     }
-    if (possibleSize.toString() in sizeData) {
+
+    if (collarSizeToString(possibleSize) in sizeData) {
         roundedCollarSize = possibleSize;
         populateTable(roundedCollarSize);
     }
@@ -243,13 +269,13 @@ document.querySelector(".prev-size").addEventListener("click", function () {
 
 document.querySelector(".next-size").addEventListener("click", function () {
     let possibleSize = roundedCollarSize + 0.5;
-    while (!(possibleSize.toString() in sizeData) && possibleSize <= 22) {
+
+    while (!(collarSizeToString(possibleSize) in sizeData) && possibleSize <= 22) {
         possibleSize += 0.5;
     }
-    if (possibleSize.toString() in sizeData) {
+
+    if (collarSizeToString(possibleSize) in sizeData) {
         roundedCollarSize = possibleSize;
         populateTable(roundedCollarSize);
     }
 });
-
-
