@@ -213,6 +213,9 @@ function populateTable(collarSize) {
 
     const size = collarSizeToString(collarSize);
 
+    // Update current collar size display
+    document.querySelector(".current-collar-size").textContent = "Current Size: " + size;
+
     for (let fit of allFits) {
         let row = `<tr>
             <td>${fit}</td>
@@ -223,6 +226,7 @@ function populateTable(collarSize) {
         tableBody.innerHTML += row;
     }
 }
+
 
 
 
