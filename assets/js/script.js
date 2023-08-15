@@ -175,3 +175,24 @@ document
         measurementModal.classList.add("hidden");
         resetSizeMeasurementModal();
     });
+
+
+function populateTable(collarSize) {
+    const tableBody = document.querySelector(".measurement-table tbody");
+    tableBody.innerHTML = ''; // clear the table
+
+    const size = collarSize.toString();
+
+    if (sizeData[size]) {
+        for (let fit in sizeData[size]) {
+            let row = `<tr>
+                <td>${fit}</td>
+                <td>${sizeData[size][fit]["Collar Length (Btn-End BHole)"]}</td>
+                <td>${sizeData[size][fit]["Chest - at armhole with Pleat open"]}</td>
+                <td>${sizeData[size][fit]["waist"]}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        }
+    }
+}
+
