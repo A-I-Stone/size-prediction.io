@@ -222,8 +222,10 @@ function populateTable(collarSize) {
                 <td>${sizeData[size][fit]["waist"]}</td>
             </tr>`;
             tableBody.innerHTML += row;
-   } else {
+        }
+    } else {
         console.log(`No data found for collar size: ${size}`);
+
     }
 }
 
