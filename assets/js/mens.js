@@ -247,12 +247,16 @@ function populateTable(collarSize) {
 
 
 
+
+
 // document.querySelector(".prev-size").addEventListener("click", function () {
 //     let possibleSize = roundedCollarSize - 0.5;
-//     while (!(possibleSize.toString() in sizeData) && possibleSize >= 4) {
+
+//     while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize >= 4) {
 //         possibleSize -= 0.5;
 //     }
-//     if (possibleSize.toString() in sizeData) {
+
+//     if (collarSizeToKey(possibleSize) in sizeData) {
 //         roundedCollarSize = possibleSize;
 //         populateTable(roundedCollarSize);
 //     }
@@ -260,15 +264,16 @@ function populateTable(collarSize) {
 
 // document.querySelector(".next-size").addEventListener("click", function () {
 //     let possibleSize = roundedCollarSize + 0.5;
-//     while (!(possibleSize.toString() in sizeData) && possibleSize <= 22) {
+
+//     while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize <= 22) {
 //         possibleSize += 0.5;
 //     }
-//     if (possibleSize.toString() in sizeData) {
+
+//     if (collarSizeToKey(possibleSize) in sizeData) {
 //         roundedCollarSize = possibleSize;
 //         populateTable(roundedCollarSize);
 //     }
 // });
-
 
 document.querySelector(".prev-size").addEventListener("click", function () {
     let possibleSize = roundedCollarSize - 0.5;
@@ -281,6 +286,10 @@ document.querySelector(".prev-size").addEventListener("click", function () {
         roundedCollarSize = possibleSize;
         populateTable(roundedCollarSize);
     }
+
+    // Update button states
+    document.querySelector(".prev-size").disabled = !hasPrevSizeData(roundedCollarSize);
+    document.querySelector(".next-size").disabled = !hasNextSizeData(roundedCollarSize);
 });
 
 document.querySelector(".next-size").addEventListener("click", function () {
@@ -294,5 +303,10 @@ document.querySelector(".next-size").addEventListener("click", function () {
         roundedCollarSize = possibleSize;
         populateTable(roundedCollarSize);
     }
+
+    // Update button states
+    document.querySelector(".prev-size").disabled = !hasPrevSizeData(roundedCollarSize);
+    document.querySelector(".next-size").disabled = !hasNextSizeData(roundedCollarSize);
 });
+
 
