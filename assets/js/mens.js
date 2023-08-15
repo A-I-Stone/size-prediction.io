@@ -273,7 +273,7 @@ function populateTable(collarSize) {
 document.querySelector(".prev-size").addEventListener("click", function () {
     let possibleSize = roundedCollarSize - 0.5;
 
-    while (!(collarSizeToString(possibleSize) in sizeData) && possibleSize >= 4) {
+    while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize >= 4) {
         possibleSize -= 0.5;
     }
 
@@ -286,7 +286,7 @@ document.querySelector(".prev-size").addEventListener("click", function () {
 document.querySelector(".next-size").addEventListener("click", function () {
     let possibleSize = roundedCollarSize + 0.5;
 
-    while (!(collarSizeToString(possibleSize) in sizeData) && possibleSize <= 22) {
+    while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize <= 22) {
         possibleSize += 0.5;
     }
 
@@ -295,3 +295,4 @@ document.querySelector(".next-size").addEventListener("click", function () {
         populateTable(roundedCollarSize);
     }
 });
+
