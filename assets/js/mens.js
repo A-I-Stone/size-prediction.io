@@ -275,6 +275,9 @@ function populateTable(collarSize) {
 //     }
 // });
 
+document.querySelector(".prev-size").disabled = !hasPrevSizeData(roundedCollarSize);
+document.querySelector(".next-size").disabled = !hasNextSizeData(roundedCollarSize);
+
 document.querySelector(".prev-size").addEventListener("click", function () {
     let possibleSize = roundedCollarSize - 0.5;
 
