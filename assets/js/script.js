@@ -181,7 +181,7 @@ document
 let sizeData = {};
 
 // Fetch the JSON data
-fetch('./converted_data.json')
+fetch('./assets/js/converted_data.json')
     .then(response => response.json())
     .then(data => {
         sizeData = data;
