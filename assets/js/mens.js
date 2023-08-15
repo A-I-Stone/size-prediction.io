@@ -221,28 +221,28 @@ function populateTable(collarSize) {
     const tableBody = document.querySelector(".measurement-table tbody");
     tableBody.innerHTML = ''; // clear the table
 
-    const size = collarSizeToString(collarSize);
+    // Display size
+    const displaySize = collarSizeToString(collarSize);
+    document.querySelector(".current-collar-size").textContent = "Current Size: " + displaySize;
 
-    // Update current collar size display
-    document.querySelector(".current-collar-size").textContent = "Current Size: " + size;
-
-     
-    const size = collarSizeToKey(collarSize);
-    console.log(`Fetching data for size: ${size}`, sizeData[size]);
+    // Key for accessing data
+    const dataSizeKey = collarSizeToKey(collarSize);
+    console.log(`Fetching data for size: ${dataSizeKey}`, sizeData[dataSizeKey]);
 
     for (let fit of allFits) {
-        if (sizeData[size] && sizeData[size][fit]) {  // check if data exists for this fit
+        if (sizeData[dataSizeKey] && sizeData[dataSizeKey][fit]) {  // check if data exists for this fit
     
             let row = `<tr>
                 <td>${fit}</td>
-                <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["Collar Length (Btn-End BHole)"] : 'N/A'}</td>
-                <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["Chest - at armhole with Pleat open"] : 'N/A'}</td>
-                <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["waist"] : 'N/A'}</td>
+                <td>${sizeData[dataSizeKey] && sizeData[dataSizeKey][fit] ? sizeData[dataSizeKey][fit]["Collar Length (Btn-End BHole)"] : 'N/A'}</td>
+                <td>${sizeData[dataSizeKey] && sizeData[dataSizeKey][fit] ? sizeData[dataSizeKey][fit]["Chest - at armhole with Pleat open"] : 'N/A'}</td>
+                <td>${sizeData[dataSizeKey] && sizeData[dataSizeKey][fit] ? sizeData[dataSizeKey][fit]["waist"] : 'N/A'}</td>
             </tr>`;
             tableBody.innerHTML += row;
         }    
     }
 }
+
 
 
 
@@ -277,7 +277,7 @@ document.querySelector(".prev-size").addEventListener("click", function () {
         possibleSize -= 0.5;
     }
 
-    if (collarSizeToString(possibleSize) in sizeData) {
+    if (collarSizeToKey(possibleSize) in sizeData) {
         roundedCollarSize = possibleSize;
         populateTable(roundedCollarSize);
     }
@@ -290,7 +290,7 @@ document.querySelector(".next-size").addEventListener("click", function () {
         possibleSize += 0.5;
     }
 
-    if (collarSizeToString(possibleSize) in sizeData) {
+    if (collarSizeToKey(possibleSize) in sizeData) {
         roundedCollarSize = possibleSize;
         populateTable(roundedCollarSize);
     }
