@@ -192,11 +192,22 @@ fetch('./converted_data.json')
         console.error("There was an error fetching the JSON data:", error);
     });
 
+function collarSizeToString(size) {
+    const integerPart = Math.floor(size);
+    const fractionalPart = size - integerPart;
+
+    if (fractionalPart === 0.5) {
+        return `${integerPart}1/2`;
+    } else {
+        return `${integerPart}`;
+    }
+}
+
 function populateTable(collarSize) {
     const tableBody = document.querySelector(".measurement-table tbody");
     tableBody.innerHTML = ''; // clear the table
 
-    const size = collarSize.toString();
+    const size = collarSizeToString(collarSize);
 
     if (sizeData[size]) {
         for (let fit in sizeData[size]) {
@@ -210,6 +221,7 @@ function populateTable(collarSize) {
         }
     }
 }
+
 document.querySelector(".prev-size").addEventListener("click", function () {
     if (roundedCollarSize - 0.5 in sizeData) {
         roundedCollarSize -= 0.5;
