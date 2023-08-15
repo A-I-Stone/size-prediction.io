@@ -199,36 +199,31 @@ function collarSizeToString(size) {
     if (fractionalPart === 0.5) {
         return `${integerPart}1/2`;
     } else {
-        return `${integerPart}.0`;
+        return `${integerPart}.0`;  // Notice the ".0" for whole numbers
     }
 }
 
 
-function populateTable(collarSize) {
+const allFits = ["slim", "extra slim", "classic", "super slim"];
 
+
+function populateTable(collarSize) {
     const tableBody = document.querySelector(".measurement-table tbody");
     tableBody.innerHTML = ''; // clear the table
 
     const size = collarSizeToString(collarSize);
-    console.log(`Trying to access data for collar size: ${size}`);
 
-    if (sizeData[size]) {
-        console.log(`Data found for collar size: ${size}`);
-
-        for (let fit in sizeData[size]) {
-            let row = `<tr>
-                <td>${fit}</td>
-                <td>${sizeData[size][fit]["Collar Length (Btn-End BHole)"]}</td>
-                <td>${sizeData[size][fit]["Chest - at armhole with Pleat open"]}</td>
-                <td>${sizeData[size][fit]["waist"]}</td>
-            </tr>`;
-            tableBody.innerHTML += row;
-        }
-    } else {
-        console.log(`No data found for collar size: ${size}`);
-
+    for (let fit of allFits) {
+        let row = `<tr>
+            <td>${fit}</td>
+            <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["Collar Length (Btn-End BHole)"] : 'N/A'}</td>
+            <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["Chest - at armhole with Pleat open"] : 'N/A'}</td>
+            <td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit]["waist"] : 'N/A'}</td>
+        </tr>`;
+        tableBody.innerHTML += row;
     }
 }
+
 
 
 document.querySelector(".prev-size").addEventListener("click", function () {
