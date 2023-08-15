@@ -390,23 +390,26 @@ body {
 
 /* Add some styles for the slider switch */
 .slider {
-  display: flex;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  overflow: hidden;
+    display: flex;
+    border: 2px solid #000;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .slide-option {
-  flex: 1;
-  text-align: center;
-  padding: 10px 20px;
-  cursor: pointer;
-  background: #ccc;
+    flex: 1;
+    text-align: center;
+    line-height: 36px; /* close to the height to vertically center the text */
+    background-color: #ccc;
+    transition: background-color 0.3s;
 }
 
 .slide-option.active {
-  background: #2196F3;
-  color: white;
+    background-color: #2196F3;
+    color: white;
 }
 
 
