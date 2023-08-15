@@ -275,8 +275,22 @@ function populateTable(collarSize) {
 //     }
 // });
 
-document.querySelector(".prev-size").disabled = !hasPrevSizeData(roundedCollarSize);
-document.querySelector(".next-size").disabled = !hasNextSizeData(roundedCollarSize);
+
+function hasNextSizeData(currentSize) {
+    let possibleSize = currentSize + 0.5;
+    while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize <= 22) {
+        possibleSize += 0.5;
+    }
+    return collarSizeToKey(possibleSize) in sizeData;
+}
+
+function hasPrevSizeData(currentSize) {
+    let possibleSize = currentSize - 0.5;
+    while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize >= 4) {
+        possibleSize -= 0.5;
+    }
+    return collarSizeToKey(possibleSize) in sizeData;
+}
 
 document.querySelector(".prev-size").addEventListener("click", function () {
     let possibleSize = roundedCollarSize - 0.5;
@@ -291,7 +305,7 @@ document.querySelector(".prev-size").addEventListener("click", function () {
     }
 
     // Update button states
-    document.querySelector(".prev-size").disabled = !hasPrevSizeData(roundedCollarSize);
+  document.querySelector(".prev-size").disabled = !hasPrevSizeData(roundedCollarSize);
     document.querySelector(".next-size").disabled = !hasNextSizeData(roundedCollarSize);
 });
 
@@ -308,7 +322,7 @@ document.querySelector(".next-size").addEventListener("click", function () {
     }
 
     // Update button states
-    document.querySelector(".prev-size").disabled = !hasPrevSizeData(roundedCollarSize);
+   document.querySelector(".prev-size").disabled = !hasPrevSizeData(roundedCollarSize);
     document.querySelector(".next-size").disabled = !hasNextSizeData(roundedCollarSize);
 });
 
