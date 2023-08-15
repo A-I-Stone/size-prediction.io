@@ -197,13 +197,22 @@ function collarSizeToString(size) {
     const fractionalPart = size - integerPart;
 
     if (fractionalPart === 0.5) {
-        return `${integerPart} 1/2`;  // Added space
+        return `${integerPart} 1/2`;  // With space for display
     } else {
         return `${integerPart}.0`;
     }
 }
 
+function collarSizeToKey(size) {
+    const integerPart = Math.floor(size);
+    const fractionalPart = size - integerPart;
 
+    if (fractionalPart === 0.5) {
+        return `${integerPart}1/2`;  // No space for JSON key
+    } else {
+        return `${integerPart}.0`;
+    }
+}
 
 const allFits = ["slim", "extra slim", "classic", "super slim"];
 
@@ -216,6 +225,9 @@ function populateTable(collarSize) {
 
     // Update current collar size display
     document.querySelector(".current-collar-size").textContent = "Current Size: " + size;
+
+     
+    const size = collarSizeToKey(collarSize);
     console.log(`Fetching data for size: ${size}`, sizeData[size]);
 
     for (let fit of allFits) {
