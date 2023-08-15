@@ -143,30 +143,44 @@
                     <!-- Measurement Modal Result -->
                     <div class="measurement-modal-result-container hidden">
                         <div class="measurement-modal-img">
-                            <img
-                                src="./assets/images/shirt_result.png"
-                                alt="Shirt"
-                            />
+                            <img src="./assets/images/shirt_result.png" alt="Shirt"/>
                         </div>
-
+                    
                         <h2 class="measurement-modal-title">
-                            Your <br />
-                            recommended <br />
-                            size is <br />
-                            <span class="measurement-modal-result"
-                                >15 Slim</span
-                            >
+                            Your recommended size is <br />
+                            <span class="measurement-modal-result">15 Slim</span>
                         </h2>
-
+                    
+                        <!-- Measurement Table -->
+                        <table class="measurement-table">
+                            <thead>
+                                <tr>
+                                    <th>Fit</th>
+                                    <th>Collar Length (Btn-End BHole)</th>
+                                    <th>Chest - at armhole with Pleat open</th>
+                                    <th>Waist</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    
+                        <!-- Navigation Buttons -->
+                        <div class="size-navigation">
+                            <button class="nav-button prev-size">Previous Size</button>
+                            <button class="nav-button next-size">Next Size</button>
+                        </div>
+                    
                         <h3 class="measurement-modal-recommendation">
                             For a roomier fit try a Classic Fit
                         </h3>
-
+                    
                         <button class="measurement-modal-restart">
                             Start again
                         </button>
                     </div>
-                    <!-- Measurement Modal Result End -->
+
                 </div>
             </div>
         </section>
