@@ -217,63 +217,49 @@ function collarSizeToKey(size) {
 const allFits = ["slim", "extra slim", "classic", "super slim"];
 
 
+
 function populateTable(collarSize) {
     const tableBody = document.querySelector(".measurement-table tbody");
     tableBody.innerHTML = ''; // clear the table
 
     // Display size
     const displaySize = collarSizeToString(collarSize);
-    document.querySelector(".current-collar-size").textContent = "Current Size: " + displaySize;
+    const nextSize = get_next_size(displaySize, sizeData);
+    const displayNextSize = nextSize ? collarSizeToString(nextSize) : null;
 
-    // Key for accessing data
-    const dataSizeKey = collarSizeToKey(collarSize);
-    console.log(`Fetching data for size: ${dataSizeKey}`, sizeData[dataSizeKey]);
+    // Determine available fits dynamically
+    const currentFits = Object.keys(sizeData[displaySize] || {});
+    const nextFits = Object.keys(sizeData[displayNextSize] || {});
+    const allFits = new Set([...currentFits, ...nextFits]);
 
+    // Generate the table header dynamically
+    const tableHeader = document.querySelector(".measurement-table thead");
+    let headerHTML = '<tr><th>Measurement</th>';
     for (let fit of allFits) {
-        if (sizeData[dataSizeKey] && sizeData[dataSizeKey][fit]) {  // check if data exists for this fit
-    
-            let row = `<tr>
-                <td>${fit}</td>
-                <td>${sizeData[dataSizeKey] && sizeData[dataSizeKey][fit] ? sizeData[dataSizeKey][fit]["Collar Length (Btn-End BHole)"] : 'N/A'}</td>
-                <td>${sizeData[dataSizeKey] && sizeData[dataSizeKey][fit] ? sizeData[dataSizeKey][fit]["Chest - at armhole with Pleat open"] : 'N/A'}</td>
-                <td>${sizeData[dataSizeKey] && sizeData[dataSizeKey][fit] ? sizeData[dataSizeKey][fit]["waist"] : 'N/A'}</td>
-            </tr>`;
-            tableBody.innerHTML += row;
-        }    
+        headerHTML += `<th>${displaySize} ${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
+        if (displayNextSize) {
+            headerHTML += `<th>${displayNextSize} ${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
+        }
+    }
+    headerHTML += '</tr>';
+    tableHeader.innerHTML = headerHTML;
+
+    const measurements = ["Collar Length (Btn-End BHole)", "Chest - at armhole with Pleat open", "waist"];
+
+    for (let measurement of measurements) {
+        let row = `<tr><td>${measurement}</td>`;
+        for (let fit of allFits) {
+            row += `<td>${sizeData[displaySize] && sizeData[displaySize][fit] ? sizeData[displaySize][fit][measurement] : 'N/A'}</td>`;
+            if (displayNextSize) {
+                row += `<td>${sizeData[displayNextSize] && sizeData[displayNextSize][fit] ? sizeData[displayNextSize][fit][measurement] : 'N/A'}</td>`;
+            }
+        }
+        row += '</tr>';
+        tableBody.innerHTML += row;
     }
 }
 
 
-
-
-
-
-
-// document.querySelector(".prev-size").addEventListener("click", function () {
-//     let possibleSize = roundedCollarSize - 0.5;
-
-//     while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize >= 4) {
-//         possibleSize -= 0.5;
-//     }
-
-//     if (collarSizeToKey(possibleSize) in sizeData) {
-//         roundedCollarSize = possibleSize;
-//         populateTable(roundedCollarSize);
-//     }
-// });
-
-// document.querySelector(".next-size").addEventListener("click", function () {
-//     let possibleSize = roundedCollarSize + 0.5;
-
-//     while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize <= 22) {
-//         possibleSize += 0.5;
-//     }
-
-//     if (collarSizeToKey(possibleSize) in sizeData) {
-//         roundedCollarSize = possibleSize;
-//         populateTable(roundedCollarSize);
-//     }
-// });
 
 
 function hasNextSizeData(currentSize) {
