@@ -228,7 +228,7 @@ const allFits = ["slim", "extra slim", "classic", "super slim"];
 
 function populateTable(collarSize) {
     
-      const tableHeader = document.querySelector(".measurement-table thead");
+    const tableHeader = document.querySelector(".measurement-table thead");
     const tableBody = document.querySelector(".measurement-table tbody");
     
     tableHeader.innerHTML = '';
