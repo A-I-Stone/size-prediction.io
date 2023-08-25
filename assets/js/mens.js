@@ -208,11 +208,12 @@ function collarSizeToKey(size) {
     const fractionalPart = size - integerPart;
 
     if (fractionalPart === 0.5) {
-        return `${integerPart}1/2`;  // No space for JSON key
+        return `${integerPart}.5`;  // Match the JSON key format
     } else {
-        return `${integerPart}.0`;
+        return `${integerPart}`;
     }
 }
+
 
 
 function get_next_size(currentSize, data) {
