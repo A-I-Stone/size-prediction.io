@@ -239,9 +239,9 @@ function populateTable(collarSize) {
     console.log("Called populateTable with collarSize:", collarSize);
     
     // Display size
-    const displaySize = collarSizeToString(collarSize);
+    const displaySize = collarSizeToKey(collarSize);
     const nextSize = get_next_size(displaySize, sizeData);
-    const displayNextSize = nextSize ? collarSizeToString(nextSize) : null;
+    const displayNextSize = nextSize ? collarSizeToKey(nextSize) : null;
 
     console.log("Calculated displaySize:", displaySize);
     console.log("Calculated nextSize:", displayNextSize);
