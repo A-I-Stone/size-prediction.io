@@ -227,21 +227,34 @@ const allFits = ["slim", "extra slim", "classic", "super slim"];
 
 
 function populateTable(collarSize) {
+    
+      const tableHeader = document.querySelector(".measurement-table thead");
     const tableBody = document.querySelector(".measurement-table tbody");
-    tableBody.innerHTML = ''; // clear the table
+    
+    tableHeader.innerHTML = '';
+    tableBody.innerHTML = '';
 
+    // Debugging Information
+    console.log("Called populateTable with collarSize:", collarSize);
+    
     // Display size
     const displaySize = collarSizeToString(collarSize);
     const nextSize = get_next_size(displaySize, sizeData);
     const displayNextSize = nextSize ? collarSizeToString(nextSize) : null;
+
+    console.log("Calculated displaySize:", displaySize);
+    console.log("Calculated nextSize:", displayNextSize);
 
     // Determine available fits dynamically
     const currentFits = Object.keys(sizeData[displaySize] || {});
     const nextFits = Object.keys(sizeData[displayNextSize] || {});
     const allFits = new Set([...currentFits, ...nextFits]);
 
+    console.log("Current Fits:", currentFits);
+    console.log("Next Fits:", nextFits);
+    console.log("All Fits:", Array.from(allFits));
+
     // Generate the table header dynamically
-    const tableHeader = document.querySelector(".measurement-table thead");
     let headerHTML = '<tr><th>Measurement</th>';
     for (let fit of allFits) {
         headerHTML += `<th>${displaySize} ${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
