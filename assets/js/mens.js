@@ -290,9 +290,9 @@ function populateTable(collarSize) {
     tableBody.innerHTML = '';
 
     // Display size
-    const displaySize = collarSizeToString(collarSize);
+    const displaySize = collarSizeToKey(collarSize);
     const nextSize = get_next_size(displaySize, sizeData);
-    const displayNextSize = nextSize ? collarSizeToString(nextSize) : null;
+    const displayNextSize = nextSize ? collarSizeToKey(nextSize) : null;
 
     // Determine available fits dynamically
     const currentFits = Object.keys(sizeData[displaySize] || {});
