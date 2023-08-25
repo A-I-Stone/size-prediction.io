@@ -214,8 +214,16 @@ function collarSizeToKey(size) {
     }
 }
 
-const allFits = ["slim", "extra slim", "classic", "super slim"];
 
+function get_next_size(currentSize, data) {
+    let possibleSize = parseFloat(currentSize) + 0.5;
+    while (!(collarSizeToKey(possibleSize) in data) && possibleSize <= 22) {
+        possibleSize += 0.5;
+    }
+    return collarSizeToKey(possibleSize) in data ? possibleSize : null;
+}
+
+const allFits = ["slim", "extra slim", "classic", "super slim"];
 
 
 function populateTable(collarSize) {
