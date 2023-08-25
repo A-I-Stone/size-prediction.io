@@ -235,32 +235,23 @@ const allFits = ["slim", "extra slim", "classic", "super slim"];
 //     tableHeader.innerHTML = '';
 //     tableBody.innerHTML = '';
 
-//     // Debugging Information
-//     console.log("Called populateTable with collarSize:", collarSize);
-    
 //     // Display size
 //     const displaySize = collarSizeToKey(collarSize);
 //     const nextSize = get_next_size(displaySize, sizeData);
 //     const displayNextSize = nextSize ? collarSizeToKey(nextSize) : null;
-
-//     console.log("Calculated displaySize:", displaySize);
-//     console.log("Calculated nextSize:", displayNextSize);
 
 //     // Determine available fits dynamically
 //     const currentFits = Object.keys(sizeData[displaySize] || {});
 //     const nextFits = Object.keys(sizeData[displayNextSize] || {});
 //     const allFits = new Set([...currentFits, ...nextFits]);
 
-//     console.log("Current Fits:", currentFits);
-//     console.log("Next Fits:", nextFits);
-//     console.log("All Fits:", Array.from(allFits));
-
 //     // Generate the table header dynamically
 //     let headerHTML = '<tr><th>Measurement</th>';
-//     for (let fit of allFits) {
-//         headerHTML += `<th>${displaySize} ${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
-//         if (displayNextSize) {
-//             headerHTML += `<th>${displayNextSize} ${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
+//     for (let size of [displaySize, displayNextSize]) {
+//         if (size) {
+//             for (let fit of allFits) {
+//                 headerHTML += `<th>${size} ${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
+//             }
 //         }
 //     }
 //     headerHTML += '</tr>';
@@ -270,10 +261,11 @@ const allFits = ["slim", "extra slim", "classic", "super slim"];
 
 //     for (let measurement of measurements) {
 //         let row = `<tr><td>${measurement}</td>`;
-//         for (let fit of allFits) {
-//             row += `<td>${sizeData[displaySize] && sizeData[displaySize][fit] ? sizeData[displaySize][fit][measurement] : 'N/A'}</td>`;
-//             if (displayNextSize) {
-//                 row += `<td>${sizeData[displayNextSize] && sizeData[displayNextSize][fit] ? sizeData[displayNextSize][fit][measurement] : 'N/A'}</td>`;
+//         for (let size of [displaySize, displayNextSize]) {
+//             if (size) {
+//                 for (let fit of allFits) {
+//                     row += `<td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit][measurement] : 'N/A'}</td>`;
+//                 }
 //             }
 //         }
 //         row += '</tr>';
@@ -281,33 +273,43 @@ const allFits = ["slim", "extra slim", "classic", "super slim"];
 //     }
 // }
 
+
 function populateTable(collarSize) {
-    
     const tableHeader = document.querySelector(".measurement-table thead");
     const tableBody = document.querySelector(".measurement-table tbody");
     
     tableHeader.innerHTML = '';
     tableBody.innerHTML = '';
 
-    // Display size
     const displaySize = collarSizeToKey(collarSize);
     const nextSize = get_next_size(displaySize, sizeData);
     const displayNextSize = nextSize ? collarSizeToKey(nextSize) : null;
 
-    // Determine available fits dynamically
     const currentFits = Object.keys(sizeData[displaySize] || {});
     const nextFits = Object.keys(sizeData[displayNextSize] || {});
     const allFits = new Set([...currentFits, ...nextFits]);
 
     // Generate the table header dynamically
-    let headerHTML = '<tr><th>Measurement</th>';
-    for (let size of [displaySize, displayNextSize]) {
-        if (size) {
-            for (let fit of allFits) {
-                headerHTML += `<th>${size} ${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
-            }
-        }
+    let headerHTML = '<tr><th rowspan="2">Measurement</th>';
+
+    if (currentFits.length) {
+        headerHTML += `<th colspan="${currentFits.length}">${displaySize}</th>`;
     }
+
+    if (displayNextSize && nextFits.length) {
+        headerHTML += `<th colspan="${nextFits.length}">${displayNextSize}</th>`;
+    }
+
+    headerHTML += '</tr><tr>';
+    
+    for (let fit of currentFits) {
+        headerHTML += `<th>${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
+    }
+    
+    for (let fit of nextFits) {
+        headerHTML += `<th>${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
+    }
+
     headerHTML += '</tr>';
     tableHeader.innerHTML = headerHTML;
 
@@ -315,19 +317,16 @@ function populateTable(collarSize) {
 
     for (let measurement of measurements) {
         let row = `<tr><td>${measurement}</td>`;
-        for (let size of [displaySize, displayNextSize]) {
-            if (size) {
-                for (let fit of allFits) {
-                    row += `<td>${sizeData[size] && sizeData[size][fit] ? sizeData[size][fit][measurement] : 'N/A'}</td>`;
-                }
+        for (let fit of allFits) {
+            row += `<td>${sizeData[displaySize] && sizeData[displaySize][fit] ? sizeData[displaySize][fit][measurement] : 'N/A'}</td>`;
+            if (displayNextSize) {
+                row += `<td>${sizeData[displayNextSize] && sizeData[displayNextSize][fit] ? sizeData[displayNextSize][fit][measurement] : 'N/A'}</td>`;
             }
         }
         row += '</tr>';
         tableBody.innerHTML += row;
     }
 }
-
-
 
 
 
