@@ -100,7 +100,7 @@ function calculateSizeAndFit() {
 	const heightInches = Number(document.getElementById("heightInches").value);
 	const weight = Number(document.getElementById("weight").value);
 	const age = Number(document.getElementById("age").value);
-	const waistSize = Number(document.getElementById("waistSize").value);
+	const waistSize = Number(document.getElementById("waist").value); // Changed 'waistSize' to 'waist'
 
 	const size = calculateShirtSizeForBoys(
 		heightFeet,
@@ -117,19 +117,34 @@ function calculateSizeAndFit() {
 		age
 	);
 
-	if (fit === "unknown") {
-		document.getElementById(
-			"sizeOutput"
-		).innerHTML = `No data available for age ${age}.`;
-		document.getElementById("fitOutput").innerHTML = "";
-	} else {
-		document.getElementById(
-			"sizeOutput"
-		).innerHTML = `Recommended size: ${size}`;
-		document.getElementById("fitOutput").innerHTML = `Recommended fit: ${fit}`;
-	}
+	const resultContainer = document.querySelector(
+		".measurement-modal-result-container"
+	);
+	const loadingContainer = document.querySelector(
+		".measurement-modal-loading-container"
+	);
+	const formContainer = document.querySelector(
+		".measurement-modal-form-container"
+	);
 
-	// Log the percentiles
-	console.log(`Height Percentile: ${heightPercentile}%`);
-	console.log(`Weight Percentile: ${weightPercentile}%`);
+	// Hide the form and show the loading container
+	formContainer.classList.add("hidden");
+	loadingContainer.classList.remove("hidden");
+
+	// Simulate loading time (e.g., 2 seconds) and then show the results
+	setTimeout(() => {
+		loadingContainer.classList.add("hidden");
+		resultContainer.classList.remove("hidden");
+
+		const sizeOutput = document.querySelector(".measurement-modal-result");
+		if (fit === "unknown") {
+			sizeOutput.innerHTML = `No data available for age ${age}.`;
+		} else {
+			sizeOutput.innerHTML = `${size} ${fit}`;
+		}
+
+		// Log the percentiles
+		console.log(`Height Percentile: ${heightPercentile}%`);
+		console.log(`Weight Percentile: ${weightPercentile}%`);
+	}, 2000); // 2 seconds
 }
