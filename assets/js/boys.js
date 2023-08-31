@@ -439,7 +439,7 @@ const heightFeet = 4;
 const heightInches = 6;
 const weight = 50;
 const age = 7;
-const waistSize = 24;
+const waistSize = 14;
 
 const size = calculateShirtSizeForBoys(heightFeet, heightInches, weight, age, waistSize);
 const fit = calculateFitForBoys(heightFeet, heightInches, weight, age);
