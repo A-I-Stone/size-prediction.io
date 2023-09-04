@@ -219,19 +219,18 @@
 					? "boys"
 					: "mens";
 				console.log("Selection is:", selection);
-				if (selection === "boys") {
+				    if (selection === "boys") {
 					fetch("./assets/js/boys.json")
-						.then((response) => response.json())
-						.then((data) => {
-							sizeData = data;
-							calculateSizeAndFit();
-						})
-						.catch((error) => {
-							console.error(
-								"There was an error fetching the JSON data for boys:",
-								error
-							);
-						});
+					    .then((response) => response.json())
+					    .then((data) => {
+						sizeData = data;
+						calculateSizeAndFit();
+					    })
+					    .catch((error) => {
+						console.error("There was an error fetching the JSON data for boys:", error);
+					    });
+					return; // This will stop the function here if selection is "boys"
+				    } 
 				} else {
 					console.log("Calculating for men...");
 					fetch("./assets/js/mens.json")
