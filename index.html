@@ -257,9 +257,10 @@
 						document.querySelector(
 							".measurement-modal-result"
 						).textContent = `${roundedCollarSize} ${fitValue}`;
-						document.querySelector(
-							".measurement-modal-recommendation"
-						).textContent = recommendation;
+						let recommendationElement = document.querySelector(".measurement-modal-recommendation");
+						if (recommendationElement) {
+						    recommendationElement.textContent = recommendation;
+						}
 						document
 							.querySelector(".measurement-modal-restart")
 							.addEventListener("click", resetSizeMeasurementModal);
