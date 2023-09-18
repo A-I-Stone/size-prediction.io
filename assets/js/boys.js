@@ -197,6 +197,8 @@ function populateTableForBoys(size) {
         row += "</tr>";
         tableBody.innerHTML += row;
     }
+	
+    document.querySelector(".current-collar-size").innerText = `Size: ${size}`;	
 }
 
 const MIN_WAIST_SIZE_BOYS = 4;
