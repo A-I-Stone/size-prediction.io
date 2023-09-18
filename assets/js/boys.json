@@ -1,1 +1,418 @@
-{}
+{
+   "4":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"11 5/8",
+         "Chest -1'' below armhole-- full":"26 3/4",
+         "waist - full":"25 1",
+         "single sleeve length for long sleeve":"14 3/8"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"11 3/7",
+         "Chest -1'' below armhole-- full":"25 1",
+         "waist - full":"25 3/5",
+         "single sleeve length for long sleeve":"14 3/8"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"11 5/8",
+         "Chest -1'' below armhole-- full":"28 1/3",
+         "waist - full":"27 1/6",
+         "single sleeve length for long sleeve":"14 3/8"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"11 5/8",
+         "Chest -1'' below armhole-- full":"28 3/4",
+         "waist - full":"28 3/4",
+         "single sleeve length for long sleeve":"14 3/8"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"nan",
+         "Chest -1'' below armhole-- full":"nan",
+         "waist - full":"nan",
+         "single sleeve length for long sleeve":"nan"
+      }
+   },
+   "5":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"11 4/5",
+         "Chest -1'' below armhole-- full":"27 4/7",
+         "waist - full":"26 3/8",
+         "single sleeve length for long sleeve":"15 3/8"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"11 5/8",
+         "Chest -1'' below armhole-- full":"26 3/4",
+         "waist - full":"25 1",
+         "single sleeve length for long sleeve":"15 3/8"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"11 4/5",
+         "Chest -1'' below armhole-- full":"29 1/8",
+         "waist - full":"27 1",
+         "single sleeve length for long sleeve":"15 3/8"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"11 4/5",
+         "Chest -1'' below armhole-- full":"29 1/2",
+         "waist - full":"29 1/2",
+         "single sleeve length for long sleeve":"15 3/8"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"nan",
+         "Chest -1'' below armhole-- full":"nan",
+         "waist - full":"nan",
+         "single sleeve length for long sleeve":"nan"
+      }
+   },
+   "6":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"12",
+         "Chest -1'' below armhole-- full":"28 1/3",
+         "waist - full":"27 1/6",
+         "single sleeve length for long sleeve":"16 1/2"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"11 4/5",
+         "Chest -1'' below armhole-- full":"27 4/7",
+         "waist - full":"26 3/8",
+         "single sleeve length for long sleeve":"16 1/2"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"12",
+         "Chest -1'' below armhole-- full":"29 7/8",
+         "waist - full":"28 1/3",
+         "single sleeve length for long sleeve":"16 1/2"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"12",
+         "Chest -1'' below armhole-- full":"30 1/3",
+         "waist - full":"30 1/3",
+         "single sleeve length for long sleeve":"16 1/2"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"12 2/5",
+         "Chest -1'' below armhole-- full":"31 1/8",
+         "waist - full":"31 1/8",
+         "single sleeve length for long sleeve":"16 1/2"
+      }
+   },
+   "7":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"12 1/5",
+         "Chest -1'' below armhole-- full":"29 1/8",
+         "waist - full":"27 4/7",
+         "single sleeve length for long sleeve":"17 5/7"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"12",
+         "Chest -1'' below armhole-- full":"28 1/3",
+         "waist - full":"27 1/6",
+         "single sleeve length for long sleeve":"17 5/7"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"12 2/5",
+         "Chest -1'' below armhole-- full":"30 5/7",
+         "waist - full":"29 1/8",
+         "single sleeve length for long sleeve":"17 5/7"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"12 2/5",
+         "Chest -1'' below armhole-- full":"31 1/8",
+         "waist - full":"31 1/8",
+         "single sleeve length for long sleeve":"17 5/7"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"12 4/5",
+         "Chest -1'' below armhole-- full":"32 2/7",
+         "waist - full":"32 2/7",
+         "single sleeve length for long sleeve":"17 5/7"
+      }
+   },
+   "8":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"12 2/5",
+         "Chest -1'' below armhole-- full":"29 7/8",
+         "waist - full":"28 1/3",
+         "single sleeve length for long sleeve":"18 1/2"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"12 1/5",
+         "Chest -1'' below armhole-- full":"29 1/8",
+         "waist - full":"27 4/7",
+         "single sleeve length for long sleeve":"18 1/2"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"12 4/5",
+         "Chest -1'' below armhole-- full":"31 7/8",
+         "waist - full":"29 7/8",
+         "single sleeve length for long sleeve":"18 1/2"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"12 4/5",
+         "Chest -1'' below armhole-- full":"32 2/7",
+         "waist - full":"32 2/7",
+         "single sleeve length for long sleeve":"18 1/2"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"12 1",
+         "Chest -1'' below armhole-- full":"33 1/2",
+         "waist - full":"33 1/2",
+         "single sleeve length for long sleeve":"18 1/2"
+      }
+   },
+   "9":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"12 1",
+         "Chest -1'' below armhole-- full":"30 5/7",
+         "waist - full":"29 1/8",
+         "single sleeve length for long sleeve":"19 2/7"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"12 2/5",
+         "Chest -1'' below armhole-- full":"29 7/8",
+         "waist - full":"28 1/3",
+         "single sleeve length for long sleeve":"19 2/7"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"12 1",
+         "Chest -1'' below armhole-- full":"33 1/8",
+         "waist - full":"30 5/7",
+         "single sleeve length for long sleeve":"19 2/7"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"12 1",
+         "Chest -1'' below armhole-- full":"33 1/2",
+         "waist - full":"33 1/2",
+         "single sleeve length for long sleeve":"19 2/7"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"13 3/8",
+         "Chest -1'' below armhole-- full":"35",
+         "waist - full":"34 5/8",
+         "single sleeve length for long sleeve":"19 2/7"
+      }
+   },
+   "10":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"13 3/8",
+         "Chest -1'' below armhole-- full":"31 1/2",
+         "waist - full":"29 7/8",
+         "single sleeve length for long sleeve":"19 2/3"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"12 1",
+         "Chest -1'' below armhole-- full":"30 5/7",
+         "waist - full":"29 1/8",
+         "single sleeve length for long sleeve":"19 2/3"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"13 3/8",
+         "Chest -1'' below armhole-- full":"34 5/8",
+         "waist - full":"31 1/2",
+         "single sleeve length for long sleeve":"19 2/3"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"13 3/8",
+         "Chest -1'' below armhole-- full":"35",
+         "waist - full":"34 5/8",
+         "single sleeve length for long sleeve":"19 2/3"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"13 4/5",
+         "Chest -1'' below armhole-- full":"37",
+         "waist - full":"37",
+         "single sleeve length for long sleeve":"19 2/3"
+      }
+   },
+   "12":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"13 4/5",
+         "Chest -1'' below armhole-- full":"33 1/8",
+         "waist - full":"30 5/7",
+         "single sleeve length for long sleeve":"20 1/2"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"13 3/8",
+         "Chest -1'' below armhole-- full":"31 1/2",
+         "waist - full":"29 7/8",
+         "single sleeve length for long sleeve":"20 1/2"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"13 4/5",
+         "Chest -1'' below armhole-- full":"36 1/5",
+         "waist - full":"33 1/8",
+         "single sleeve length for long sleeve":"20 1/2"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"13 4/5",
+         "Chest -1'' below armhole-- full":"37",
+         "waist - full":"37",
+         "single sleeve length for long sleeve":"20 1/2"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"14 1/6",
+         "Chest -1'' below armhole-- full":"38 4/7",
+         "waist - full":"38 4/7",
+         "single sleeve length for long sleeve":"20 1/2"
+      }
+   },
+   "14":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"14 1/6",
+         "Chest -1'' below armhole-- full":"34 5/8",
+         "waist - full":"32 2/7",
+         "single sleeve length for long sleeve":"21 1/4"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"13 4/5",
+         "Chest -1'' below armhole-- full":"33 1/8",
+         "waist - full":"30 5/7",
+         "single sleeve length for long sleeve":"21 1/4"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"14 1/6",
+         "Chest -1'' below armhole-- full":"37 4/5",
+         "waist - full":"35 3/7",
+         "single sleeve length for long sleeve":"21 1/4"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"14 1/6",
+         "Chest -1'' below armhole-- full":"38 4/7",
+         "waist - full":"38 4/7",
+         "single sleeve length for long sleeve":"21 1/4"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"14 4/7",
+         "Chest -1'' below armhole-- full":"40 4/7",
+         "waist - full":"40 4/7",
+         "single sleeve length for long sleeve":"21 1/4"
+      }
+   },
+   "16":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"14 4/7",
+         "Chest -1'' below armhole-- full":"36 1/5",
+         "waist - full":"33 6/7",
+         "single sleeve length for long sleeve":"22 3/7"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"14 1/6",
+         "Chest -1'' below armhole-- full":"34 5/8",
+         "waist - full":"32 2/7",
+         "single sleeve length for long sleeve":"22 3/7"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"14 4/7",
+         "Chest -1'' below armhole-- full":"39 3/8",
+         "waist - full":"37",
+         "single sleeve length for long sleeve":"22 3/7"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"14 4/7",
+         "Chest -1'' below armhole-- full":"40 4/7",
+         "waist - full":"40 4/7",
+         "single sleeve length for long sleeve":"22 3/7"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"14 1",
+         "Chest -1'' below armhole-- full":"42 1/2",
+         "waist - full":"42 1/2",
+         "single sleeve length for long sleeve":"22 3/7"
+      }
+   },
+   "18":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"14 1",
+         "Chest -1'' below armhole-- full":"37 4/5",
+         "waist - full":"35 3/7",
+         "single sleeve length for long sleeve":"23 1/4"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"14 4/7",
+         "Chest -1'' below armhole-- full":"36 1/5",
+         "waist - full":"33 6/7",
+         "single sleeve length for long sleeve":"23 1/4"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"14 1",
+         "Chest -1'' below armhole-- full":"40 1",
+         "waist - full":"38 4/7",
+         "single sleeve length for long sleeve":"23 1/4"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"14 1",
+         "Chest -1'' below armhole-- full":"42 1/2",
+         "waist - full":"42 1/2",
+         "single sleeve length for long sleeve":"23 1/4"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"15 3/8",
+         "Chest -1'' below armhole-- full":"44 1/8",
+         "waist - full":"44 1/8",
+         "single sleeve length for long sleeve":"23 1/4"
+      }
+   },
+   "20":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"15 3/8",
+         "Chest -1'' below armhole-- full":"39 3/8",
+         "waist - full":"37",
+         "single sleeve length for long sleeve":"24"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"14 1",
+         "Chest -1'' below armhole-- full":"37 4/5",
+         "waist - full":"35 3/7",
+         "single sleeve length for long sleeve":"24"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"15 3/8",
+         "Chest -1'' below armhole-- full":"42 1/2",
+         "waist - full":"40 1/6",
+         "single sleeve length for long sleeve":"24"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"15 3/8",
+         "Chest -1'' below armhole-- full":"44 1/8",
+         "waist - full":"44 1/8",
+         "single sleeve length for long sleeve":"24"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"15 3/4",
+         "Chest -1'' below armhole-- full":"45 2/3",
+         "waist - full":"45 2/3",
+         "single sleeve length for long sleeve":"24"
+      }
+   },
+   "22.0":{
+      "extra":{
+         "Collar Length (Btn- middle of BHole)":"15 3/4",
+         "Chest -1'' below armhole-- full":"40 1",
+         "waist - full":"38 4/7",
+         "single sleeve length for long sleeve":"24 4/5"
+      },
+      "super":{
+         "Collar Length (Btn- middle of BHole)":"15 3/8",
+         "Chest -1'' below armhole-- full":"39 3/8",
+         "waist - full":"37",
+         "single sleeve length for long sleeve":"24 3/5"
+      },
+      "classic":{
+         "Collar Length (Btn- middle of BHole)":"15 3/4",
+         "Chest -1'' below armhole-- full":"44 1/8",
+         "waist - full":"41 3/4",
+         "single sleeve length for long sleeve":"24 4/5"
+      },
+      "traditional":{
+         "Collar Length (Btn- middle of BHole)":"15 3/4",
+         "Chest -1'' below armhole-- full":"45 2/3",
+         "waist - full":"45 2/3",
+         "single sleeve length for long sleeve":"24 4/5"
+      },
+      "husky":{
+         "Collar Length (Btn- middle of BHole)":"16 1/7",
+         "Chest -1'' below armhole-- full":"47 1/4",
+         "waist - full":"47 1/4",
+         "single sleeve length for long sleeve":"24 4/5"
+      }
+   }
+}
