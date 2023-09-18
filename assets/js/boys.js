@@ -1,4 +1,4 @@
-// const sizeDataBoys = {};
+// const sizeData = {};
 let currentWaistSize;
 
 const heightDataBoys = {'2 years': [11.6, 33, 33.3, 33.8, 34.7, 35.7, 36.6, 37.5, 38.1, 38.5],
@@ -161,7 +161,7 @@ function populateTableForBoys(size) {
     tableHeader.innerHTML = "";
     tableBody.innerHTML = "";
 
-    const currentFits = Object.keys(sizeDataBoys[size] || {});
+    const currentFits = Object.keys(sizeData[size] || {});
     const allFits = new Set(currentFits);
 
     // Generate the table header dynamically
@@ -183,7 +183,7 @@ function populateTableForBoys(size) {
     for (let measurement of measurements) {
         let row = `<tr><td>${measurement}</td>`;
         for (let fit of allFits) {
-            row += `<td>${sizeDataBoys[size][fit][measurement] || "N/A"}</td>`;
+            row += `<td>${sizeData[size][fit][measurement] || "N/A"}</td>`;
         }
         row += "</tr>";
         tableBody.innerHTML += row;
@@ -197,36 +197,36 @@ function waistSizeToKey(size) {
     return size.toString();
 }
 
-function hasNextSizeDataBoys(currentSize) {
+function hasNextsizeData(currentSize) {
     return currentSize + 2 <= MAX_WAIST_SIZE_BOYS;
 }
 
-function hasPrevSizeDataBoys(currentSize) {
+function hasPrevsizeData(currentSize) {
     return currentSize - 2 >= MIN_WAIST_SIZE_BOYS;
 }
 
 document.querySelector(".prev-size").addEventListener("click", function () {
-    if (hasPrevSizeDataBoys(currentWaistSize)) {
+    if (hasPrevsizeData(currentWaistSize)) {
         currentWaistSize -= 2;
         populateTableForBoys(currentWaistSize);
     }
 
     // Update button states
     document.querySelector(".prev-size").disabled =
-        !hasPrevSizeDataBoys(currentWaistSize);
+        !hasPrevsizeData(currentWaistSize);
     document.querySelector(".next-size").disabled =
-        !hasNextSizeDataBoys(currentWaistSize);
+        !hasNextsizeData(currentWaistSize);
 });
 
 document.querySelector(".next-size").addEventListener("click", function () {
-    if (hasNextSizeDataBoys(currentWaistSize)) {
+    if (hasNextsizeData(currentWaistSize)) {
         currentWaistSize += 2;
         populateTableForBoys(currentWaistSize);
     }
 
     // Update button states
     document.querySelector(".prev-size").disabled =
-        !hasPrevSizeDataBoys(currentWaistSize);
+        !hasPrevsizeData(currentWaistSize);
     document.querySelector(".next-size").disabled =
-        !hasNextSizeDataBoys(currentWaistSize);
+        !hasNextsizeData(currentWaistSize);
 });
