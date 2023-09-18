@@ -25,10 +25,10 @@
             "Sleeve": "14 3/8"
         },
         "husky": {
-            "Collar": "nan",
-            "Chest": "nan",
-            "Waist": "nan",
-            "Sleeve": "nan"
+            "Collar": "",
+            "Chest": "",
+            "Waist": "",
+            "Sleeve": ""
         },
         "slim": {
             "Collar": "11 5/8",
@@ -63,10 +63,10 @@
             "Sleeve": "15 3/8"
         },
         "husky": {
-            "Collar": "nan",
-            "Chest": "nan",
-            "Waist": "nan",
-            "Sleeve": "nan"
+            "Collar": "",
+            "Chest": "",
+            "Waist": "",
+            "Sleeve": ""
         },
         "slim": {
             "Collar": "11 6/8",
