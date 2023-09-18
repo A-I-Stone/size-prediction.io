@@ -174,37 +174,45 @@ function populateTableForBoys(size) {
     tableHeader.innerHTML = "";
     tableBody.innerHTML = "";
 
-    // const currentFits = Object.keys(sizeData[size] || {});
-    const currentFits = [ "super slim","extra slim", "slim", "classic", "traditional", "husky"];
-    const allFits = new Set(currentFits);
+    const nextSize = size + getNextIncrement(size);  // Calculate the next size
+
+    const currentFits = ["super slim", "extra slim", "slim", "classic", "traditional", "husky"];
 
     // Generate the table header dynamically
     let headerHTML = '<tr><th>Measurement</th>';
 
-    for (let fit of currentFits) {
-        headerHTML += `<th>${fit.charAt(0).toUpperCase() + fit.slice(1)}</th>`;
+    for (let currentSize of [size, nextSize]) {
+        headerHTML += `<th colspan="${currentFits.length}">${currentSize}</th>`;
     }
     headerHTML += "</tr>";
-    tableHeader.innerHTML = headerHTML;
 
-    const measurements = [
-        "Collar",
-        "Chest",
-        "Waist",
-        "Sleeve"
-    ];
+    // Generate the subheader for fit types
+    let subHeaderHTML = '<tr><td></td>';
+    for (let _ of [size, nextSize]) {
+        for (let fit of currentFits) {
+            subHeaderHTML += `<th>${fit.charAt(0).toUpperCase() + fit.slice(1)}</th>`;
+        }
+    }
+    subHeaderHTML += "</tr>";
+
+    tableHeader.innerHTML = headerHTML + subHeaderHTML;
+
+    const measurements = ["Collar", "Chest", "Waist", "Sleeve"];
 
     for (let measurement of measurements) {
         let row = `<tr><td>${measurement}</td>`;
-        for (let fit of allFits) {
-            row += `<td>${sizeData[size][fit][measurement] || "N/A"}</td>`;
+        for (let currentSize of [size, nextSize]) {
+            for (let fit of currentFits) {
+                row += `<td>${sizeData[currentSize][fit][measurement] || "N/A"}</td>`;
+            }
         }
         row += "</tr>";
         tableBody.innerHTML += row;
     }
-	
-    document.querySelector(".current-collar-size").innerText = `Size: ${size}`;	
+
+    document.querySelector(".current-collar-size").innerText = `Size: ${size} and ${nextSize}`;	
 }
+
 
 const MIN_WAIST_SIZE_BOYS = 4;
 const MAX_WAIST_SIZE_BOYS = 22;
