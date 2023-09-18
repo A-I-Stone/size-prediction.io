@@ -92,13 +92,13 @@ function calculateFitForBoys(heightFeet, heightInches, weight, age) {
 }
 
 function findPercentile(value, percentiles) {
-	const breakpoints = [5, 10, 15, 25, 50, 75, 85, 90, 95];
-	for (let i = 0; i < percentiles.length; i++) {
-		if (value <= percentiles[i]) {
-			return breakpoints[i];
-		}
-	}
-	return 95;
+    const breakpoints = [95, 90, 85, 75, 50, 25, 15, 10, 5]; // Adjusted order
+    for (let i = 0; i < percentiles.length; i++) {
+        if (value >= percentiles[i]) {
+            return breakpoints[i];
+        }
+    }
+    return 5;
 }
 
 function calculateSizeAndFit() {
