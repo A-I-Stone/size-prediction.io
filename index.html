@@ -267,6 +267,21 @@
 					}, 3000);
 				}
 			}
+			document.querySelector(".measurement-modal-restart").addEventListener("click", function() {
+			    const resultContainer = document.querySelector(".measurement-modal-result-container");
+			    const formContainer = document.querySelector(".measurement-modal-form-container");
+			    
+			    // Hide the result container
+			    resultContainer.classList.add("hidden");
+			    
+			    // Show the form container
+			    formContainer.classList.remove("hidden");
+			
+			    // Optional: Reset the form fields
+			    const form = document.getElementById("shirtSizeForm");
+			    form.reset();
+			});
+			
 		</script>
 	</body>
 </html>
