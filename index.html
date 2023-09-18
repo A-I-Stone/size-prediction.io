@@ -200,28 +200,17 @@
 		<script src="./assets/js/boys.js"></script>
 
 		<script>
-			document.getElementById("shirtSizeForm").addEventListener("submit", function (event) {
-			    event.preventDefault();
-			    calculateSizeAndFitBasedOnSelection();
-			});
-			
-			window.onload = function () {
-			    const urlParams = new URLSearchParams(window.location.search);
-			    const type = urlParams.get('type');
-			    if (type === 'boys') {
-			        document.getElementById("genderToggle").checked = true;
-			        document.getElementById("genderLabel").innerText = "Boys'";
-			    }
-			}
-			
-			document.getElementById("genderToggle").addEventListener("change", function () {
-			    let genderLabel = document.getElementById("genderLabel");
-			    if (this.checked) {
-			        genderLabel.innerText = "Boys'";
-			    } else {
-			        genderLabel.innerText = "Men's";
-			    }
-			});
+			document
+				.getElementById("genderToggle")
+				.addEventListener("change", function () {
+					let genderLabel = document.getElementById("genderLabel");
+					if (this.checked) {
+						genderLabel.innerText = "Boys'";
+					} else {
+						genderLabel.innerText = "Men's";
+					}
+				});
+
 			console.log(document.getElementById("heightFeet"));
 			console.log(document.getElementById("heightInches"));
 			function calculateSizeAndFitBasedOnSelection() {
