@@ -118,6 +118,8 @@ function calculateSizeAndFit() {
 
 	console.log(`Calculated Shirt Size: ${size}`);
 
+	currentWaistSize = size;
+
 	const { fit, heightPercentile, weightPercentile } = calculateFitForBoys(
 		heightFeet,
 		heightInches,
