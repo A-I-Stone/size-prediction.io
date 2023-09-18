@@ -61,6 +61,8 @@ function calculateFitForBoys(heightFeet, heightInches, weight, age) {
 	const heightIn = heightFeet * 12 + heightInches;
 	const ageKey = age + " years";
 
+	console.log("heightIn",heightIn,"ageKey",ageKey);
+
 	// Check if the age-based percentiles exist
 	if (!heightDataBoys[ageKey] || !weightDataBoys[ageKey]) {
 		console.error(`No data available for age ${age}`);
