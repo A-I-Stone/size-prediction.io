@@ -53,7 +53,7 @@ function calculateShirtSizeForBoys(
 ) {
 	if (waistSize < 4) return 4;
 	else if (waistSize > 22) return "Please check men's sizes.";
-	else if (waistSize >= 4 && waistSize <= 10) return 1;
+	else if (waistSize >= 4 && waistSize <= 10) return waistSize;
 	else return Math.ceil(waistSize / 2) * 2; // Round up to the nearest even number
 }
 
