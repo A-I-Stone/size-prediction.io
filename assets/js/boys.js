@@ -58,7 +58,7 @@ function calculateShirtSizeForBoys(
 }
 
 function calculateFitForBoys(heightFeet, heightInches, weight, age) {
-	const heightCm = (heightFeet * 12 + heightInches) * 2.54;
+	const heightIn = heightFeet * 12 + heightInches;
 	const ageKey = age + " years";
 
 	// Check if the age-based percentiles exist
@@ -74,7 +74,7 @@ function calculateFitForBoys(heightFeet, heightInches, weight, age) {
 	const percentilesHeight = heightDataBoys[ageKey];
 	const percentilesWeight = weightDataBoys[ageKey];
 
-	const heightPercentile = findPercentile(heightCm, percentilesHeight);
+	const heightPercentile = findPercentile(heightIn, percentilesHeight);
 	const weightPercentile = findPercentile(weight, percentilesWeight);
 
 	const averagePercentile = (heightPercentile + weightPercentile) / 2;
