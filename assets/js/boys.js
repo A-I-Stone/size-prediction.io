@@ -170,7 +170,8 @@ function populateTableForBoys(size) {
     tableHeader.innerHTML = "";
     tableBody.innerHTML = "";
 
-    const currentFits = Object.keys(sizeData[size] || {});
+    // const currentFits = Object.keys(sizeData[size] || {});
+    const currentFits = ["slim", "extra", "super", "classic", "traditional", "husky"];
     const allFits = new Set(currentFits);
 
     // Generate the table header dynamically
