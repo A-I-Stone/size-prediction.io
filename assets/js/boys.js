@@ -214,20 +214,28 @@ function waistSizeToKey(size) {
     return size.toString();
 }
 
+function getNextIncrement(currentSize) {
+    return currentSize < 10 ? 1 : 2;
+}
+
+function getPrevDecrement(currentSize) {
+    return currentSize <= 10 ? 1 : 2;
+}
+
 function hasNextsizeData(currentSize) {
     console.log("hasNextsizeData called with currentSize:", currentSize);
-    return currentSize + 2 <= MAX_WAIST_SIZE_BOYS;
+    return currentSize + getNextIncrement(currentSize) <= MAX_WAIST_SIZE_BOYS;
 }
 
 function hasPrevsizeData(currentSize) {
     console.log("hasPrevsizeData called with currentSize:", currentSize);	
-    return currentSize - 2 >= MIN_WAIST_SIZE_BOYS;
+    return currentSize - getPrevDecrement(currentSize) >= MIN_WAIST_SIZE_BOYS;
 }
 
 document.querySelector(".prev-size").addEventListener("click", function () {
     console.log("Prev size button clicked.");
     if (hasPrevsizeData(currentWaistSize)) {
-        currentWaistSize -= 2;
+        currentWaistSize -= getPrevDecrement(currentWaistSize);
         console.log(`Setting currentWaistSize to: ${currentWaistSize}`);
         populateTableForBoys(currentWaistSize);
     }
@@ -242,7 +250,7 @@ document.querySelector(".prev-size").addEventListener("click", function () {
 document.querySelector(".next-size").addEventListener("click", function () {
     console.log("Next size button clicked.");
     if (hasNextsizeData(currentWaistSize)) {
-        currentWaistSize += 2;
+        currentWaistSize += getNextIncrement(currentWaistSize);
         console.log(`Setting currentWaistSize to: ${currentWaistSize}`);
         populateTableForBoys(currentWaistSize);
     }
