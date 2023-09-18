@@ -178,16 +178,16 @@ function populateTableForBoys(size) {
     let headerHTML = '<tr><th>Measurement</th>';
 
     for (let fit of currentFits) {
-        headerHTML += `<th>${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
+        headerHTML += `<th>${fit.charAt(0).toUpperCase() + fit.slice(1)}</th>`;
     }
     headerHTML += "</tr>";
     tableHeader.innerHTML = headerHTML;
 
     const measurements = [
-        "Collar Length (Btn- middle of BHole)",
-        "Chest -1'' below armhole-- full",
-        "waist - full",
-        "single sleeve length for long sleeve"
+        "Collar",
+        "Chest",
+        "Waist",
+        "Sleeve"
     ];
 
     for (let measurement of measurements) {
