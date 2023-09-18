@@ -1,3 +1,6 @@
+// const sizeDataBoys = {};
+let currentWaistSize;
+
 const heightDataBoys = {'2 years': [11.6, 33, 33.3, 33.8, 34.7, 35.7, 36.6, 37.5, 38.1, 38.5],
  '3 years': [16.5, 35.9, 36.3, 36.8, 37.8, 38.8, 39.9, 40.9, 41.5, 41.9],
  '4 years': [21.3, 38.3, 38.7, 39.3, 40.4, 41.6, 42.7, 43.8, 44.4, 44.8],
@@ -148,4 +151,82 @@ function calculateSizeAndFit() {
 		console.log(`Height Percentile: ${heightPercentile}%`);
 		console.log(`Weight Percentile: ${weightPercentile}%`);
 	}, 2000); // 2 seconds
+
+    populateTableForBoys(size);	
 }
+function populateTableForBoys(size) {
+    const tableHeader = document.querySelector(".measurement-table thead");
+    const tableBody = document.querySelector(".measurement-table tbody");
+
+    tableHeader.innerHTML = "";
+    tableBody.innerHTML = "";
+
+    const currentFits = Object.keys(sizeDataBoys[size] || {});
+    const allFits = new Set(currentFits);
+
+    // Generate the table header dynamically
+    let headerHTML = '<tr><th>Measurement</th>';
+
+    for (let fit of currentFits) {
+        headerHTML += `<th>${fit.charAt(0).toUpperCase() + fit.slice(1)} Fit</th>`;
+    }
+    headerHTML += "</tr>";
+    tableHeader.innerHTML = headerHTML;
+
+    const measurements = [
+        "Collar Length (Btn- middle of BHole)",
+        "Chest -1'' below armhole-- full",
+        "waist - full",
+        "single sleeve length for long sleeve"
+    ];
+
+    for (let measurement of measurements) {
+        let row = `<tr><td>${measurement}</td>`;
+        for (let fit of allFits) {
+            row += `<td>${sizeDataBoys[size][fit][measurement] || "N/A"}</td>`;
+        }
+        row += "</tr>";
+        tableBody.innerHTML += row;
+    }
+}
+
+const MIN_WAIST_SIZE_BOYS = 4;
+const MAX_WAIST_SIZE_BOYS = 22;
+
+function waistSizeToKey(size) {
+    return size.toString();
+}
+
+function hasNextSizeDataBoys(currentSize) {
+    return currentSize + 2 <= MAX_WAIST_SIZE_BOYS;
+}
+
+function hasPrevSizeDataBoys(currentSize) {
+    return currentSize - 2 >= MIN_WAIST_SIZE_BOYS;
+}
+
+document.querySelector(".prev-size").addEventListener("click", function () {
+    if (hasPrevSizeDataBoys(currentWaistSize)) {
+        currentWaistSize -= 2;
+        populateTableForBoys(currentWaistSize);
+    }
+
+    // Update button states
+    document.querySelector(".prev-size").disabled =
+        !hasPrevSizeDataBoys(currentWaistSize);
+    document.querySelector(".next-size").disabled =
+        !hasNextSizeDataBoys(currentWaistSize);
+});
+
+document.querySelector(".next-size").addEventListener("click", function () {
+    if (hasNextSizeDataBoys(currentWaistSize)) {
+        currentWaistSize += 2;
+        populateTableForBoys(currentWaistSize);
+    }
+
+    // Update button states
+    document.querySelector(".prev-size").disabled =
+        !hasPrevSizeDataBoys(currentWaistSize);
+    document.querySelector(".next-size").disabled =
+        !hasNextSizeDataBoys(currentWaistSize);
+});
