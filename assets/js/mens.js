@@ -1,4 +1,4 @@
-// Elements
+// DOM elements
 const measurementModal = document.querySelector(".measurement-modal-section");
 const formContainer = document.querySelector(
 	".measurement-modal-form-container"
@@ -9,9 +9,8 @@ const loadingContainer = document.querySelector(
 const resultContainer = document.querySelector(
 	".measurement-modal-result-container"
 );
-const sizeMeasurementForm = document.querySelector("#shirtSizeForm");
 
-// Constants
+// Machine Learning Model Constants
 const collarCoefficients = [-0.13417252, 0.84135936, 0.05379397, 0.23244605];
 const collarIntercept = 15.623076923076923;
 const fitCoefficients = [
@@ -23,19 +22,16 @@ const fitIntercepts = [0.00475587, 0.2668346, -0.27159047];
 const featureMeans = [58.52307692, 177.53846154, 32.78461538, 34.75384615];
 const featureStdDevs = [2.5243899, 30.74864696, 9.24286387, 4.16590841];
 
-// Values
 let fitValues = [];
 let maxIndex = 0;
 let fitLabels = [];
 let collarSize = 0;
 let roundedCollarSize = 0;
 let fitValue = "";
-let sleeveLength = 0;
-let bmiFit = "";
 let recommendation = "";
+let sizeData = {};
 
-// Calculate Collar Size
-// function calculateCollarSize(heightFeet, heightInches, weight, age, waist) {
+// Calculate and set Collar Size
 function calculateCollarSize() {
 	console.log(document.getElementById("heightFeet"));
 	console.log(document.getElementById("heightInches"));
@@ -95,7 +91,7 @@ function calculateCollarSize() {
 	fitValue = fitLabels[maxIndex];
 }
 
-// BMI Fit
+// Calculate and set BMI Fit
 function calculateBMIFit(heightFeet, heightInches, weight, age, waist) {
 	const totalHeightInches = parseInt(heightFeet) * 12 + parseInt(heightInches);
 	const weightKilograms = weight * 0.4536;
@@ -137,82 +133,16 @@ function calculateBMIFit(heightFeet, heightInches, weight, age, waist) {
 	}
 }
 
-// Reset Form
+// Reset Form to original state
 function resetSizeMeasurementModal() {
 	formContainer.classList.remove("hidden");
 	resultContainer.classList.add("hidden");
 	document.querySelector(".measurement-modal-submit").disabled = false;
-	sizeMeasurementForm.reset();
+	const form = document.querySelector("#shirtSizeForm");
+	form.reset();
 }
 
-// // Calculate Result and Render it
-// sizeMeasurementForm.addEventListener("submit", function (event) {
-// 	event.preventDefault();
-
-// 	const heightFeet = parseFloat(document.getElementById("heightFeet").value);
-// 	const heightInches = parseFloat(
-// 		document.getElementById("heightInches").value
-// 	);
-// 	const weight = parseFloat(document.getElementById("weight").value);
-// 	const age = parseFloat(document.getElementById("age").value);
-// 	const waist = parseFloat(document.getElementById("waist").value);
-
-// 	calculateCollarSize(heightFeet, heightInches, weight, age, waist);
-// 	calculateBMIFit(heightFeet, heightInches, weight, age, waist);
-
-// 	const result = `${roundedCollarSize} ${fitValue}`;
-
-// 	formContainer.classList.add("hidden");
-// 	loadingContainer.classList.remove("hidden");
-// 	document.querySelector(".measurement-modal-submit").disabled = true;
-
-// 	setTimeout(function () {
-// 		populateTable(roundedCollarSize);
-
-// 		loadingContainer.classList.add("hidden");
-// 		resultContainer.classList.remove("hidden");
-// 		document.querySelector(".measurement-modal-result").textContent = result;
-// 		document.querySelector(".measurement-modal-recommendation").textContent =
-// 			recommendation;
-// 		document
-// 			.querySelector(".measurement-modal-restart")
-// 			.addEventListener("click", resetSizeMeasurementModal);
-// 	}, 3000);
-// });
-
-// Close Modal
-document
-	.querySelector(".measurement-modal-close")
-	.addEventListener("click", () => {
-		measurementModal.classList.add("hidden");
-		resetSizeMeasurementModal();
-	});
-
-let sizeData = {};
-
-// // Fetch the JSON data
-// fetch("./assets/js/mens.json")
-// 	.then((response) => response.json())
-// 	.then((data) => {
-// 		sizeData = data;
-
-// 		// You can add any other logic that should run after loading the data here
-// 	})
-// 	.catch((error) => {
-// 		console.error("There was an error fetching the JSON data:", error);
-// 	});
-
-function collarSizeToString(size) {
-	const integerPart = Math.floor(size);
-	const fractionalPart = size - integerPart;
-
-	if (fractionalPart === 0.5) {
-		return `${integerPart} 1/2`; // With space for display
-	} else {
-		return `${integerPart}.0`;
-	}
-}
-
+// Utility functions to convert collar size
 function collarSizeToKey(size) {
 	const integerPart = Math.floor(size);
 	const fractionalPart = size - integerPart;
@@ -234,6 +164,7 @@ function get_next_size(currentSize, data) {
 
 const allFits = ["slim", "extra slim", "classic", "super slim"];
 
+// Populate the table with size data
 function populateTable(collarSize) {
 	const tableHeader = document.querySelector(".measurement-table thead");
 	const tableBody = document.querySelector(".measurement-table tbody");
@@ -300,6 +231,7 @@ function populateTable(collarSize) {
 	}
 }
 
+// Utility functions to determine the presence of size data
 function hasNextSizeData(currentSize) {
 	let possibleSize = currentSize + 0.5;
 	while (!(collarSizeToKey(possibleSize) in sizeData) && possibleSize <= 22) {
@@ -316,6 +248,7 @@ function hasPrevSizeData(currentSize) {
 	return collarSizeToKey(possibleSize) in sizeData;
 }
 
+// Navigate to previous size data
 document.querySelector(".prev-size").addEventListener("click", function () {
 	let possibleSize = roundedCollarSize - 0.5;
 
@@ -335,6 +268,7 @@ document.querySelector(".prev-size").addEventListener("click", function () {
 		!hasNextSizeData(roundedCollarSize);
 });
 
+// Navigate to next size data
 document.querySelector(".next-size").addEventListener("click", function () {
 	let possibleSize = roundedCollarSize + 0.5;
 
@@ -353,3 +287,11 @@ document.querySelector(".next-size").addEventListener("click", function () {
 	document.querySelector(".next-size").disabled =
 		!hasNextSizeData(roundedCollarSize);
 });
+
+// Close the measurement modal
+document
+	.querySelector(".measurement-modal-close")
+	.addEventListener("click", () => {
+		measurementModal.classList.add("hidden");
+		resetSizeMeasurementModal();
+	});
