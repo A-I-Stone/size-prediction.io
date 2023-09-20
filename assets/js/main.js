@@ -1,3 +1,4 @@
+// Toggle gender label based on the checkbox status
 document.getElementById("genderToggle").addEventListener("change", function () {
 	let genderLabel = document.getElementById("genderLabel");
 	if (this.checked) {
@@ -7,15 +8,12 @@ document.getElementById("genderToggle").addEventListener("change", function () {
 	}
 });
 
-console.log(document.getElementById("heightFeet"));
-console.log(document.getElementById("heightInches"));
+// Calculate size and fit based on gender selection
 function calculateSizeAndFitBasedOnSelection() {
-	// const selection = document.getElementById("genderSelection").value;
-	const selection = document.getElementById("genderToggle").checked
-		? "boys"
-		: "mens";
-	console.log("Selection is:", selection);
+	const selection = document.getElementById("genderToggle").checked ? "boys" : "mens";
+
 	if (selection === "boys") {
+		// Fetch boys' size data
 		fetch("./assets/js/boys.json")
 			.then((response) => response.json())
 			.then((data) => {
@@ -23,14 +21,10 @@ function calculateSizeAndFitBasedOnSelection() {
 				calculateSizeAndFit();
 			})
 			.catch((error) => {
-				console.error(
-					"There was an error fetching the JSON data for boys:",
-					error
-				);
+				console.error("Error fetching boys' JSON data:", error);
 			});
-		return; // This will stop the function here if selection is "boys"
 	} else {
-		console.log("Calculating for men...");
+		// Fetch men's size data
 		fetch("./assets/js/mens.json")
 			.then((response) => response.json())
 			.then((data) => {
@@ -39,52 +33,38 @@ function calculateSizeAndFitBasedOnSelection() {
 				calculateBMIFit();
 			})
 			.catch((error) => {
-				console.error(
-					"There was an error fetching the JSON data for men:",
-					error
-				);
+				console.error("Error fetching men's JSON data:", error);
 			});
+		
+		// Show loading UI and hide form
 		formContainer.classList.add("hidden");
 		loadingContainer.classList.remove("hidden");
 		document.querySelector(".measurement-modal-submit").disabled = true;
 
+		// Display results after a delay
 		setTimeout(function () {
 			populateTable(roundedCollarSize);
-
 			loadingContainer.classList.add("hidden");
 			resultContainer.classList.remove("hidden");
-			document.querySelector(
-				".measurement-modal-result"
-			).textContent = `${roundedCollarSize} ${fitValue}`;
-			let recommendationElement = document.querySelector(
-				".measurement-modal-recommendation"
-			);
+			document.querySelector(".measurement-modal-result").textContent = `${roundedCollarSize} ${fitValue}`;
+
+			let recommendationElement = document.querySelector(".measurement-modal-recommendation");
 			if (recommendationElement) {
 				recommendationElement.textContent = recommendation;
 			}
-			document
-				.querySelector(".measurement-modal-restart")
-				.addEventListener("click", resetSizeMeasurementModal);
 		}, 3000);
 	}
 }
-document
-	.querySelector(".measurement-modal-restart")
-	.addEventListener("click", function () {
-		const resultContainer = document.querySelector(
-			".measurement-modal-result-container"
-		);
-		const formContainer = document.querySelector(
-			".measurement-modal-form-container"
-		);
 
-		// Hide the result container
-		resultContainer.classList.add("hidden");
+// Restart the measurement modal (hide results and show the form)
+document.querySelector(".measurement-modal-restart").addEventListener("click", function () {
+	const resultContainer = document.querySelector(".measurement-modal-result-container");
+	const formContainer = document.querySelector(".measurement-modal-form-container");
+	
+	resultContainer.classList.add("hidden");
+	formContainer.classList.remove("hidden");
 
-		// Show the form container
-		formContainer.classList.remove("hidden");
-
-		// Optional: Reset the form fields
-		const form = document.getElementById("shirtSizeForm");
-		form.reset();
-	});
+	// Reset form fields
+	const form = document.getElementById("shirtSizeForm");
+	form.reset();
+});
