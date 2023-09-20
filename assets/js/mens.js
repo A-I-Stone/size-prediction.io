@@ -33,11 +33,11 @@ let sizeData = {};
 
 // Calculate and set Collar Size
 function calculateCollarSize() {
-	console.log(document.getElementById("heightFeet"));
-	console.log(document.getElementById("heightInches"));
-	console.log(document.getElementById("weight"));
-	console.log(document.getElementById("age"));
-	console.log(document.getElementById("waist"));
+	// console.log(document.getElementById("heightFeet"));
+	// console.log(document.getElementById("heightInches"));
+	// console.log(document.getElementById("weight"));
+	// console.log(document.getElementById("age"));
+	// console.log(document.getElementById("waist"));
 
 	const heightFeet = parseFloat(document.getElementById("heightFeet").value);
 	const heightInches = parseFloat(
@@ -113,10 +113,10 @@ function calculateBMIFit(heightFeet, heightInches, weight, age, waist) {
 	let mlFit = fitValue; // assume fitValues is already defined based on machine learning model
 
 	const collarThreshold = 0.5; // this can be adjusted based on your own data and customer feedback
-	console.log(`mlFit- ${mlFit}`);
-	console.log(`bmiFit- ${bmiFit}`);
-	console.log(`collarDeviation- ${collarDeviation}`);
-	console.log(`collarSize- ${collarSize}`);
+	// console.log(`mlFit- ${mlFit}`);
+	// console.log(`bmiFit- ${bmiFit}`);
+	// console.log(`collarDeviation- ${collarDeviation}`);
+	// console.log(`collarSize- ${collarSize}`);
 
 	// Compare the fits first
 	if (mlFit != bmiFit) {
