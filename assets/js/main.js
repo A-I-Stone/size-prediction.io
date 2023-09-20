@@ -57,14 +57,19 @@ function calculateSizeAndFitBasedOnSelection() {
 }
 
 // Restart the measurement modal (hide results and show the form)
-document.querySelector(".measurement-modal-restart").addEventListener("click", function () {
-	const resultContainer = document.querySelector(".measurement-modal-result-container");
-	const formContainer = document.querySelector(".measurement-modal-form-container");
-	
-	resultContainer.classList.add("hidden");
-	formContainer.classList.remove("hidden");
+function resetMeasurementModal() {
+    const resultContainer = document.querySelector(".measurement-modal-result-container");
+    const formContainer = document.querySelector(".measurement-modal-form-container");
 
-	// Reset form fields
-	const form = document.getElementById("shirtSizeForm");
-	form.reset();
-});
+    // Hide result and loading sections, show the form section.
+    resultContainer.classList.add("hidden");
+    formContainer.classList.remove("hidden");
+
+    // Reset form fields
+    const form = document.getElementById("shirtSizeForm");
+    form.reset();
+}
+
+// Attach the resetMeasurementModal function to the "x" and "Start again" buttons
+document.querySelector(".measurement-modal-close").addEventListener("click", resetMeasurementModal);
+document.querySelector(".measurement-modal-restart").addEventListener("click", resetMeasurementModal);
