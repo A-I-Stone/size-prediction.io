@@ -1,12 +1,16 @@
 // Toggle gender label based on the checkbox status
 document.getElementById("genderToggle").addEventListener("change", function () {
-	let genderLabel = document.getElementById("genderLabel");
-	if (this.checked) {
-		genderLabel.innerText = "Boys'";
-	} else {
-		genderLabel.innerText = "Men's";
-	}
+    let genderLabel = document.getElementById("genderLabel");
+    if (this.checked) {
+        genderLabel.innerText = "Boys'";
+    } else {
+        genderLabel.innerText = "Men's";
+    }
+
+    // Reset the measurement modal when the toggle is switched
+    resetMeasurementModal();
 });
+
 
 // Calculate size and fit based on gender selection
 function calculateSizeAndFitBasedOnSelection() {
