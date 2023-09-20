@@ -75,5 +75,5 @@ function resetMeasurementModal() {
 }
 
 // Attach the resetMeasurementModal function to the "x" and "Start again" buttons
-document.querySelector(".measurement-modal-close").addEventListener("click", resetMeasurementModal);
+// document.querySelector(".measurement-modal-close").addEventListener("click", resetMeasurementModal);
 document.querySelector(".measurement-modal-restart").addEventListener("click", resetMeasurementModal);
