@@ -116,9 +116,7 @@ function calculateSizeAndFit() {
 	const weight = Number(document.getElementById("weight").value);
 	const age = Number(document.getElementById("age").value);
 	const waistSize = Number(document.getElementById("waist").value); // Changed 'waistSize' to 'waist'
-	// console.log(
-		`Height (feet): ${heightFeet}, Height (inches): ${heightInches}, Weight: ${weight}, Age: ${age}, Waist Size: ${waistSize}`
-	);
+	// console.log(`Height (feet): ${heightFeet}, Height (inches): ${heightInches}, Weight: ${weight}, Age: ${age}, Waist Size: ${waistSize}`);
 
 	const size = calculateShirtSizeForBoys(
 		heightFeet,
@@ -138,9 +136,7 @@ function calculateSizeAndFit() {
 		weight,
 		age
 	);
-	// console.log(
-		`Fit: ${fit}, Height Percentile: ${heightPercentile}%, Weight Percentile: ${weightPercentile}%`
-	);
+	// console.log(`Fit: ${fit}, Height Percentile: ${heightPercentile}%, Weight Percentile: ${weightPercentile}%`);
 
 	const resultContainer = document.querySelector(
 		".measurement-modal-result-container"
