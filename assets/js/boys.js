@@ -83,6 +83,7 @@ function calculateFitForBoys(heightFeet, heightInches, weight, age) {
 	const percentilesWeight = weightDataBoys[ageKey];
 
 	const heightPercentile = findPercentile(heightIn, percentilesHeight);
+	console.log('Height Percentile returned by findPercentile: ', heightPercentile); // Add this line
 	console.log(`heightIn: ${heightIn}, percentilesHeight: ${percentilesHeight}`);
 	const weightPercentile = findPercentile(weight, percentilesWeight);
 	console.log(`weight: ${weight}, percentilesWeight: ${percentilesWeight}`);
