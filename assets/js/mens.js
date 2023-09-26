@@ -64,6 +64,15 @@ function calculateCollarSize() {
 		collarIntercept;
 	roundedCollarSize = Math.ceil(collarSize * 2) / 2;
 
+
+	    // Check if roundedCollarSize is below 14, if so, alert the user and return early
+	    if(roundedCollarSize < 14) {
+		alert("Please check men's sizes.");
+		// You might want to hide the measurementModal or perform other UI changes here
+		measurementModal.classList.add("hidden"); // For example
+		return; // Return early from the function
+	    }	
+
 	// Fit prediction
 	const extraSlim =
 		fitCoefficients[0][0] * scaledHeight +
