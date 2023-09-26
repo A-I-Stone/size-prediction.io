@@ -105,17 +105,29 @@ function calculateFitForBoys(heightFeet, heightInches, weight, age) {
 	return { fit, heightPercentile, weightPercentile };
 }
 
-// Find Percentile
-function findPercentile(value, percentiles) {
-	const heightBreakpoints = [95, 90, 85, 75, 50, 25, 15, 10, 5, 1]; // for heightDataBoys
-	const weightBreakpoints = [95, 90, 85, 75, 50, 25, 15, 10, 5]; // for weightDataBoys
-	for (let i = 0; i < percentiles.length; i++) {
-		if (value >= percentiles[i]) {
-			return breakpoints[i];
-		}
-	}
-	return 5;
+// // Find Percentile
+// function findPercentile(value, percentiles) {
+// 	const breakpoints = [95, 90, 85, 75, 50, 25, 15, 10, 5];
+// 	for (let i = 0; i < percentiles.length; i++) {
+// 		if (value >= percentiles[i]) {
+// 			return breakpoints[i];
+// 		}
+// 	}
+// 	return 5;
+// }
+
+const heightBreakpoints = [95, 90, 85, 75, 50, 25, 15, 10, 5, 1]; // for heightDataBoys
+const weightBreakpoints = [95, 90, 85, 75, 50, 25, 15, 10, 5]; // for weightDataBoys
+
+function findPercentile(value, percentiles, breakpoints) {
+  for (let i = 0; i < percentiles.length; i++) {
+    if (value >= percentiles[i]) {
+      return breakpoints[i];
+    }
+  }
+  return breakpoints[breakpoints.length - 1];
 }
+
 
 // Calculate Size and Fit
 function calculateSizeAndFit() {
