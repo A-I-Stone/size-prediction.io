@@ -67,7 +67,7 @@ function calculateFitForBoys(heightFeet, heightInches, weight, age) {
 	const heightIn = heightFeet * 12 + heightInches;
 	const ageKey = age + " years";
 
-	// console.log("heightIn", heightIn, "ageKey", ageKey);
+	console.log("heightIn", heightIn, "ageKey", ageKey);
 
 	// Check if the age-based percentiles exist
 	if (!heightDataBoys[ageKey] || !weightDataBoys[ageKey]) {
@@ -110,13 +110,13 @@ function findPercentile(value, percentiles) {
 
 // Calculate Size and Fit
 function calculateSizeAndFit() {
-	// console.log("calculateSizeAndFit called.");
+	console.log("calculateSizeAndFit called.");
 	const heightFeet = Number(document.getElementById("heightFeet").value);
 	const heightInches = Number(document.getElementById("heightInches").value);
 	const weight = Number(document.getElementById("weight").value);
 	const age = Number(document.getElementById("age").value);
 	const waistSize = Number(document.getElementById("waist").value); // Changed 'waistSize' to 'waist'
-	// console.log(`Height (feet): ${heightFeet}, Height (inches): ${heightInches}, Weight: ${weight}, Age: ${age}, Waist Size: ${waistSize}`);
+	console.log(`Height (feet): ${heightFeet}, Height (inches): ${heightInches}, Weight: ${weight}, Age: ${age}, Waist Size: ${waistSize}`);
 
 	const size = calculateShirtSizeForBoys(
 		heightFeet,
@@ -126,7 +126,7 @@ function calculateSizeAndFit() {
 		waistSize
 	);
 
-	// console.log(`Calculated Shirt Size: ${size}`);
+	console.log(`Calculated Shirt Size: ${size}`);
 
 	currentWaistSize = size;
 
@@ -136,7 +136,7 @@ function calculateSizeAndFit() {
 		weight,
 		age
 	);
-	// console.log(`Fit: ${fit}, Height Percentile: ${heightPercentile}%, Weight Percentile: ${weightPercentile}%`);
+	console.log(`Fit: ${fit}, Height Percentile: ${heightPercentile}%, Weight Percentile: ${weightPercentile}%`);
 
 	const resultContainer = document.querySelector(
 		".measurement-modal-result-container"
@@ -165,8 +165,8 @@ function calculateSizeAndFit() {
 		}
 
 		// Log the percentiles
-		// console.log(`Height Percentile: ${heightPercentile}%`);
-		// console.log(`Weight Percentile: ${weightPercentile}%`);
+		console.log(`Height Percentile: ${heightPercentile}%`);
+		console.log(`Weight Percentile: ${weightPercentile}%`);
 	}, 2000); // 2 seconds
 
 	populateTableForBoys(size);
@@ -174,7 +174,7 @@ function calculateSizeAndFit() {
 
 // Populate Table for Boys
 function populateTableForBoys(size) {
-	// console.log("populateTableForBoys called with size:", size);
+	console.log("populateTableForBoys called with size:", size);
 	const tableHeader = document.querySelector(".measurement-table thead");
 	const tableBody = document.querySelector(".measurement-table tbody");
 
@@ -231,7 +231,7 @@ function populateTableForBoys(size) {
 
 // Utility Functions
 function waistSizeToKey(size) {
-	// console.log("waistSizeToKey called with size:", size);
+	console.log("waistSizeToKey called with size:", size);
 	return size.toString();
 }
 
@@ -244,21 +244,21 @@ function getPrevDecrement(currentSize) {
 }
 
 function hasNextsizeData(currentSize) {
-	// console.log("hasNextsizeData called with currentSize:", currentSize);
+	console.log("hasNextsizeData called with currentSize:", currentSize);
 	return currentSize + getNextIncrement(currentSize) <= MAX_WAIST_SIZE_BOYS;
 }
 
 function hasPrevsizeData(currentSize) {
-	// console.log("hasPrevsizeData called with currentSize:", currentSize);
+	console.log("hasPrevsizeData called with currentSize:", currentSize);
 	return currentSize - getPrevDecrement(currentSize) >= MIN_WAIST_SIZE_BOYS;
 }
 
 // Event Listeners
 document.querySelector(".prev-size").addEventListener("click", function () {
-	// console.log("Prev size button clicked.");
+	console.log("Prev size button clicked.");
 	if (hasPrevsizeData(currentWaistSize)) {
 		currentWaistSize -= getPrevDecrement(currentWaistSize);
-		// console.log(`Setting currentWaistSize to: ${currentWaistSize}`);
+		console.log(`Setting currentWaistSize to: ${currentWaistSize}`);
 		populateTableForBoys(currentWaistSize);
 	}
 
@@ -270,10 +270,10 @@ document.querySelector(".prev-size").addEventListener("click", function () {
 });
 
 document.querySelector(".next-size").addEventListener("click", function () {
-	// console.log("Next size button clicked.");
+	console.log("Next size button clicked.");
 	if (hasNextsizeData(currentWaistSize)) {
 		currentWaistSize += getNextIncrement(currentWaistSize);
-		// console.log(`Setting currentWaistSize to: ${currentWaistSize}`);
+		console.log(`Setting currentWaistSize to: ${currentWaistSize}`);
 		populateTableForBoys(currentWaistSize);
 	}
 
