@@ -82,10 +82,14 @@ function calculateFitForBoys(heightFeet, heightInches, weight, age) {
 	const percentilesHeight = heightDataBoys[ageKey];
 	const percentilesWeight = weightDataBoys[ageKey];
 
-	const heightPercentile = findPercentile(heightIn, percentilesHeight);
+	// const heightPercentile = findPercentile(heightIn, percentilesHeight);
+	
+	const heightPercentile = findPercentile(heightIn, percentilesHeight, heightBreakpoints);
 	console.log('Height Percentile returned by findPercentile: ', heightPercentile); // Add this line
 	console.log(`heightIn: ${heightIn}, percentilesHeight: ${percentilesHeight}`);
-	const weightPercentile = findPercentile(weight, percentilesWeight);
+	
+	// const weightPercentile = findPercentile(weight, percentilesWeight);
+	const weightPercentile = findPercentile(weight, percentilesWeight, weightBreakpoints);
 	console.log(`weight: ${weight}, percentilesWeight: ${percentilesWeight}`);
 	
 
@@ -103,7 +107,8 @@ function calculateFitForBoys(heightFeet, heightInches, weight, age) {
 
 // Find Percentile
 function findPercentile(value, percentiles) {
-	const breakpoints = [95, 90, 85, 75, 50, 25, 20, 15, 10, 5]; // Adjusted order
+	const heightBreakpoints = [95, 90, 85, 75, 50, 25, 15, 10, 5, 1]; // for heightDataBoys
+	const weightBreakpoints = [95, 90, 85, 75, 50, 25, 15, 10, 5]; // for weightDataBoys
 	for (let i = 0; i < percentiles.length; i++) {
 		if (value >= percentiles[i]) {
 			return breakpoints[i];
